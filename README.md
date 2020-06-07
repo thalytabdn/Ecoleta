@@ -18,7 +18,7 @@
 
 <a id="sobre"></a>
 
-## :bookmark: Sobre
+## 📝 Sobre
 
 O <strong>Ecoleta</strong> é uma aplicação Web e Mobile para ajudar pessoas a encontrarem pontos de coleta para reciclagem.
 
@@ -41,7 +41,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 <a id="como-usar"></a>
 
-## :fire: Como usar
+## ✨ Como usar
 
 - ### **Pré-requisitos**
 
