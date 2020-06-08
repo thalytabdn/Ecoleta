@@ -1,7 +1,6 @@
 <h3 align="center">
     <img alt="Logo" title="#logo" width="300px" src="logo.png">
     <br><br>
-    <b>Recicle! ajude o meio ambiente!</b>  
     <br>
 </h3>
 
