@@ -10,15 +10,12 @@ import {
   StyleSheet
 } from 'react-native';
 
-import Constants from "expo-constants";
-
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 
 import { Feather } from '@expo/vector-icons';
 import { SvgUri } from 'react-native-svg';
-
 
 import api from '../../services/api';
 
@@ -32,13 +29,22 @@ interface Point {
   id: number;
   name: string;
   image: string;
+  image_url: string;
   latitude: number;
   longitude: number;
 }
 
+interface Params {
+  uf:string,
+  city: string
+}
+
 const Points = () => {
   const navigation = useNavigation();
+  const route = useRoute();
 
+  const routeParams = route.params as Params;
+    
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     0,
     0,
@@ -74,15 +80,15 @@ const Points = () => {
     api
       .get('/points', {
         params: {
-          city: 'Aroeiras',
-          uf: 'PB',
-          items: [2, 3],
+          city: routeParams.city,
+          uf: routeParams.uf,
+          items: selectedItems,
         },
       })
       .then((response) => {
         setPoints(response.data);
       });
-  }, []);
+  }, [selectedItems]);
 
   useEffect(() => {
     api.get('/items').then((response) => {
@@ -148,7 +154,7 @@ const Points = () => {
                     <Image
                       style={styles.mapMarkerImage}
                       source={{
-                        uri: point.image,
+                        uri: point.image_url,
                       }}
                     />
                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>
@@ -191,7 +197,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 32,
-    paddingTop: 50,
+    paddingTop: 20,
   },
 
   title: {
@@ -259,8 +265,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderWidth: 2,
     borderColor: '#eee',
-    height: 120,
-    width: 120,
+    height: 110,
+    width: 110,
     borderRadius: 8,
     paddingHorizontal: 16,
     paddingTop: 20,
@@ -268,7 +274,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
     alignItems: 'center',
     justifyContent: 'space-between',
-
     textAlign: 'center',
   },
 
@@ -280,7 +285,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontFamily: 'Roboto_400Regular',
     textAlign: 'center',
-    fontSize: 13,
+    fontSize: 12,
   },
 });
 
