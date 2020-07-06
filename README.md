@@ -20,8 +20,6 @@
 
 O <strong>Ecoleta</strong> é uma aplicação Web e Mobile para ajudar pessoas a encontrarem pontos de coleta para reciclagem.
 
-<a id="documentacao"></a>
-
 <a id="tecnologias-utilizadas"></a>
 
 ## :rocket: Tecnologias Utilizadas
