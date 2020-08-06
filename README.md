@@ -33,7 +33,10 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 ## :heavy_check_mark: Resultado:
 
-- O layout está disponível no **[Figma](https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/)**;
+ <p align="center">
+  <img src="ecoleta.png"/>
+</p>
+
 
 <a id="como-usar"></a>
 
